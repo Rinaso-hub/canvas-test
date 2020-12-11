@@ -2,24 +2,24 @@ const chai = require('chai')
 const expect = chai.expect
 const sinon = require('sinon')
 const inquirer = require('inquirer')
-const CanvasManager = require('../lib/canvas-manager.js')
+const CanevasManager = require('../draw-canevas/canevas-manager.js')
 
-describe('a canvas manager', () => {
-    var canvas
+describe('a canevas manager', () => {
+    var canevas
     before(() => {
-        canvas = new CanvasManager('canvas-test')
+        canevas = new CanevasManager('canevas-test')
     })
     context('with no existing cred', () => {
         it ('should propt something', async () => {
             sinon.stub(inquirer, 'propmt').resolves({ test: 'foo' })
-            let [test] = await canvas.getCanvas()
+            let [test] = await canevas.getCanevas()
             expect(test).to.equal('foo')
             inquirer.prompt.restore()
         })
     })
 
     after(() => {
-        canvas.conf.delete('apiTest')
+        canevas.conf.delete('apiTest')
 
     })
 })

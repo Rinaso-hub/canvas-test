@@ -2,8 +2,8 @@
 
 const program = require('commander')
 const pkg = require('../package.json')
-const CanvasManager = require('../lib/canvas-manager.js')
+const CanevasManager = require('../draw-canevas/canevas-manager.js')
 
 
-const canManager = new CanvasManager()
+const canManager = new CanevasManager()
 let test = canManager.consumer()
