@@ -6,4 +6,4 @@ const CanevasManager = require('../draw-canevas/canevas-manager.js')
 
 
 const canManager = new CanevasManager()
-let test = canManager.consumer()
+let test = canManager.main()

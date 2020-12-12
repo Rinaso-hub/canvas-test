@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "bin": {
-    "canevas": "../bin/canevas.js"
+    "canvas": "./bin/canvas.js"
   },
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha test/canevas-manager-test.js"
+    "test": "node_modules/.bin/mocha"
   },
   "author": "",
   "license": "MIT",
