@@ -1,22 +1,24 @@
 const inquirer = require('inquirer')
 
+
 class CanevasManager {
-    constructor(name) {
+
+    constructor() {
 
     }
     
     initCanevas(width, length) {
-        var myMatrix = new Array(length).fill(' ').map(() => new Array(width).fill(' '));
+        this.matrice = new Array(length).fill(' ').map(() => new Array(width).fill(' '));
         for (var y = 0; y < length; y++) {
-            myMatrix[y][0] = '|';
-            myMatrix[y][width] = '|';
+            this.matrice[y][0] = '|';
+            this.matrice[y][width] = '|';
         }
         for (var x = 0; x <= width; x++) {
-            myMatrix[0][x] = '-';
-            myMatrix[width - 1][x] = '-';
+            this.matrice[0][x] = '-';
+            this.matrice[width - 1][x] = '-';
         }
-        for (var i = 0; i < myMatrix.length; i++) {
-            console.log(myMatrix[i].join(' '));
+        for (var i = 0; i <  this.matrice.length; i++) {
+            console.log( this.matrice[i].join(' '));
         }
     }
 
