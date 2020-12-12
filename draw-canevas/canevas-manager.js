@@ -11,41 +11,46 @@ class CanevasManager {
     }
 
     main() {
-        console.log('You can start to drow.');
-        this.startCommand();
+        console.log('You can start drowing.');
+        this.startCommandLine();
     }
 
-    startCommand() {
-        inquirer.prompt(this.directionsPrompt).then((answer) => {
-            let args = answer.cmd.split(' ');
-            if (args[0] = 'C') {
-                args.shift()
-                args = args.map(elem => parseInt(elem))
-                this.initCanevas(args[0], args[1]);
-            }
-        }).then(() => {
+    startCommandLine() {
+        const program = () => {
             inquirer.prompt(this.directionsPrompt).then((answer) => {
                 let args = answer.cmd.split(' ');
-                if (args[0] = 'L') {
-                    args.shift()
-                    this.drowLine(args);
-                    for (var i = 0; i < this.board.length; i++) {
-                        console.log(this.board[i].join(' '));
+                if (args[0] != 'Q') {
+                    switch (args[0]) {
+                        case 'C':
+                            args.shift()
+                            args = args.map(elem => parseInt(elem))
+                            this.initCanevas(args[0], args[1]);
+                            break;
+                        case 'L':
+                            args.shift()
+                            this.drowLine(args);
+                            for (var i = 0; i < this.board.length; i++) {
+                                console.log(this.board[i].join(' '));
+                            }
+                            break;
+                        case 'R':
+                            args.shift()
+                            this.drowRectangle(args);
+                            for (var i = 0; i < this.board.length; i++) {
+                                console.log(this.board[i].join(' '));
+                            }
+                            break;
+                        case 'B':
+                            break;
                     }
+                    program();
                 }
-            }).then(() => {
-                inquirer.prompt(this.directionsPrompt).then((answer) => {
-                    let args = answer.cmd.split(' ');
-                    if (args[0] = 'R') {
-                        args.shift()
-                        this.drowRectangle(args);
-                        for (var i = 0; i < this.board.length; i++) {
-                            console.log(this.board[i].join(' '));
-                        }
-                    }
-                });
-            });
-        })
+                else {
+                    console.log('End of drowing')
+                }
+            })
+        }
+        program()
     }
 
     initCanevas(width, length) {
@@ -65,7 +70,6 @@ class CanevasManager {
     }
 
     drowLine(coordinates) {
-        console.log(coordinates)
         var coor = this.getCoordinates(coordinates);
         if ((coor[0].x == coor[1].x)) {
             for (var j = coor[0].y; j <= coor[1].y; j++) {
