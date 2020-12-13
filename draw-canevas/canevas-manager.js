@@ -73,12 +73,19 @@ class CanevasManager {
         var coor = this.getCoordinates(coordinates);
         if ((coor[0].x == coor[1].x)) {
             for (var j = coor[0].y; j <= coor[1].y; j++) {
-                this.board[coor[0].x][j] = 'x';
+                if (!Object.is(this.board[coor[0].x][j], '-') &&
+                    !Object.is(this.board[coor[0].x][j], '|')) {
+                    this.board[j][coor[0].y] = 'x';
+
+                }
             }
         }
         if ((coor[0].y == coor[1].y)) {
             for (var i = coor[0].x; i <= coor[1].x; i++) {
-                this.board[i][coor[0].y] = 'x';
+                if (!Object.is(this.board[coor[0].y][i], '-') &&
+                    !Object.is(this.board[coor[0].y][i], '|')) {
+                    this.board[coor[0].x][i] = 'x';
+                }
             }
         }
     }
@@ -95,6 +102,7 @@ class CanevasManager {
         var arr = new Array();
         arr.push({ x: array2[0], y: array2[1] });
         arr.push({ x: answer[0], y: answer[1] });
+        console.log(arr)
         return (arr)
     }
 }
