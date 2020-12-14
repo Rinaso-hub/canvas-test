@@ -1,13 +1,13 @@
 const chai = require('chai')
 const expect = chai.expect
-const CanevasManager = require('../draw-canevas/canevas-manager.js')
+const CanevasService = require('../draw-canevas/canevas-service.js')
 const arrayTool = require('../tools/arrayTool.js')
 
 
 describe('a canevas', () => {
-    var canevas = new CanevasManager('canevas-test')
+    var canevas = new CanevasService('canevas-test')
     /*beforeEach(() => {
-        canevas = new CanevasManager('canevas-test')
+        canevas = new CanevasService('canevas-test')
     })*/
 
     it('should initialize a x by y', async () => {
@@ -20,9 +20,9 @@ describe('a canevas', () => {
             ['-', '-', '-', '-', '-', '-', '-', '-', '-', '-']];
         canevas.initCanevas(10, 4);
         var result = arrayTool.arrayEqualsBidimension(canevas.board, expectedArray);
-        expect(true).to.equal(true);
+        expect(true).to.equal(true); // <==== WTF is this????
     })
-    it('should drow a horizental line from x1 y1 to x2 y2', async () => {
+    it('should draw a horizental line from x1 y1 to x2 y2', async () => {
         var expectedArray =
             [
                 ['-', '-', '-', '-', '-', '-', '-', '-', '-', '-'],
@@ -33,12 +33,12 @@ describe('a canevas', () => {
                 ['-', '-', '-', '-', '-', '-', '-', '-', '-', '-']
             ];
         var lineCoor = ['1', '1', '1', '4']
-        canevas.drowLine(lineCoor);
+        canevas.drawLine(lineCoor);
         var result = arrayTool.arrayEqualsBidimension(canevas.board, expectedArray);
-        expect(true).to.equal(true);
+        expect(true).to.equal(true);// <==== WTF is this????
         //console.log(canevas)
     })
-    it('should drow a horizental line from x1 y1 to x2 y2', async () => {
+    it('should draw a horizental line from x1 y1 to x2 y2', async () => {
         var expectedArray =
             [
                 ['-', '-', '-', '-', '-', '-', '-', '-', '-', '-'],
@@ -49,9 +49,10 @@ describe('a canevas', () => {
                 ['-', '-', '-', '-', '-', '-', '-', '-', '-', '-']
             ];
         var lineCoor = ['1', '1', '4', '1']
-        canevas.drowLine(lineCoor);
-        var result = MyClass1.arrayEqualsBidimension(canevas.board, expectedArray);
-        expect(true).to.equal(true);
-        //console.log(canevas)
+        canevas.drawLine(lineCoor);
+        var result = MyClass1.arrayEqualsBidimension(canevas.board, expectedArray); // WTF??? myclass1?????
+        expect(true).to.equal(true);// <==== WTF is this????
     })
+
+    //POURQUOI IL N Y PAS LES TESTS FAITS EN PREMIER????????? TU PIGES PAS TDD?
 })
