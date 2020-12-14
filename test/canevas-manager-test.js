@@ -20,9 +20,9 @@ describe('a canevas', () => {
             ['-', '-', '-', '-', '-', '-', '-', '-', '-', '-']];
         canevas.initCanevas(10, 4);
         var result = arrayTool.arrayEqualsBidimension(canevas.board, expectedArray);
-        expect(true).to.equal(true); // <==== WTF is this????
+        expect(result).to.equal(true); // <==== WTF is this????
     })
-    it('should draw a horizental line from x1 y1 to x2 y2', async () => {
+    it('should draw a horizontal line from x1 y1 to x2 y2', async () => {
         var expectedArray =
             [
                 ['-', '-', '-', '-', '-', '-', '-', '-', '-', '-'],
@@ -35,10 +35,10 @@ describe('a canevas', () => {
         var lineCoor = ['1', '1', '1', '4']
         canevas.drawLine(lineCoor);
         var result = arrayTool.arrayEqualsBidimension(canevas.board, expectedArray);
-        expect(true).to.equal(true);// <==== WTF is this????
+        expect(result).to.equal(true);// <==== WTF is this????
         //console.log(canevas)
     })
-    it('should draw a horizental line from x1 y1 to x2 y2', async () => {
+    it('should draw a horizontal line from x1 y1 to x2 y2', async () => {
         var expectedArray =
             [
                 ['-', '-', '-', '-', '-', '-', '-', '-', '-', '-'],
@@ -51,7 +51,7 @@ describe('a canevas', () => {
         var lineCoor = ['1', '1', '4', '1']
         canevas.drawLine(lineCoor);
         var result = MyClass1.arrayEqualsBidimension(canevas.board, expectedArray); // WTF??? myclass1?????
-        expect(true).to.equal(true);// <==== WTF is this????
+        expect(result).to.equal(true);// <==== WTF is this????
     })
 
     //POURQUOI IL N Y PAS LES TESTS FAITS EN PREMIER????????? TU PIGES PAS TDD?

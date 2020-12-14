@@ -113,10 +113,10 @@ class CanevasService {
 
   getCoordinates(coordinates) {
     var arraySplice = coordinates.splice(0, Math.ceil(coordinates.length / 2));
-    var array = new Array();
-    arr.push({ x: arraySplice[0], y: arraySplice[1] });
-    arr.push({ x: coordinates[0], y: coordinates[1] });
-    return array2;
+    var coordinates = [];
+    coordinates.push({ x: arraySplice[0], y: arraySplice[1] });
+    coordinates.push({ x: coordinates[0], y: coordinates[1] });
+    return coordinates;
   }
 
   spreadZoneChar(x, y, char) {
