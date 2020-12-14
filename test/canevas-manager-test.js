@@ -1,6 +1,6 @@
 const chai = require('chai')
 const expect = chai.expect
-const CanevasService = require('../draw-canevas/canevas-service.js')
+const CanevasService = require('../services/canevas-service.js')
 const arrayTool = require('../tools/arrayTool.js')
 
 
@@ -50,7 +50,7 @@ describe('a canevas', () => {
             ];
         var lineCoor = ['1', '1', '4', '1']
         canevas.drawLine(lineCoor);
-        var result = MyClass1.arrayEqualsBidimension(canevas.board, expectedArray); // WTF??? myclass1?????
+        var result = arrayTool.arrayEqualsBidimension(canevas.board, expectedArray);
         expect(result).to.equal(true);// <==== WTF is this????
     })
 
